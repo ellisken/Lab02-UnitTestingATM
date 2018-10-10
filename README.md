@@ -14,7 +14,7 @@ In the following example, the user:
 * View their balance once more
 * Exits the program
 
-![example] (assets/example1.png)
-![example-cont.] (assets/example2.png)
+![example] (assets/example1.PNG)
+![example-cont.] (assets/example2.PNG)
 
 
