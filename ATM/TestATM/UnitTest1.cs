@@ -17,6 +17,9 @@ namespace TestATM
         {
             Assert.Equal(3, Program.ValidateChoice("3"));
         }
+
+        [Theory]
+        [InlineData()]
     }
 
 }

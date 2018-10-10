@@ -8,10 +8,10 @@ namespace ATM
 
         static void Main()
         {
-            string menu = "1 - View Balance\n2 - Withdraw\n3 - Deposit\n4 - Exit";
+            string menu = "1 - View Balance\n2 - Withdraw\n3 - Deposit\n4 - Exit\n";
             string userSelection; //captures user menu choice
             int menuController;
-            //double amount; //captures user amount to withdraw or deposit
+            double amount; //captures user amount to withdraw or deposit
 
             //Welcome user
             Console.WriteLine("Welcome to Online Banking. Please select from the following menu (1, 2, 3, 4):");
@@ -24,18 +24,48 @@ namespace ATM
                 userSelection = Console.ReadLine();
                 try
                 {
+                    //Validate user choice
                     menuController = ValidateChoice(userSelection);
                 }
-                catch(Exception e)
+                catch
                 {
-                    Console.WriteLine($"{e.Message}");
-                    Console.WriteLine("Please select from the following menu:");
+                    Console.WriteLine("\nInvalid Choice. Please select from the following menu:");
                     continue;
                 }
-                //Validate user choice
+
+                //If menuController == -1, reprompt
+                if(menuController == -1)
+                {
+                    Console.WriteLine("\nMenu option not recognized. Please select again:");
+                    continue;
+                }
+
                 //If choice is exit, exit
+                if (menuController == 4)
+                {
+                    Console.WriteLine("\n\nThank you for banking with us. Goodbye!\n\n");
+                    return;
+                }
+
                 //If choice is withdraw or add, get amount
+                if(menuController == 2 || menuController == 3)
+                {
+                    string action = menuController == 2 ? "withdraw" : "deposit";
+                    Console.WriteLine($"\n\nPlease enter amount to {action}");
+                    amount = Convert.ToDouble(Console.ReadLine());
+                }
+
                 //Execute user choice
+                switch(menuController)
+                {
+                    case 1:
+                        ViewBalance();
+                        break;
+                    case 2:
+                        break;
+                    case 3:
+                        break;
+                }
             }
         }
 
@@ -50,9 +80,9 @@ namespace ATM
                 convertedInput = Convert.ToInt32(input);
             }
             //Catch error, throw to main, and return with status of -1
-            catch
+            catch(Exception e)
             {
-                throw new Exception("Menu selection invalid.");
+                throw e;
             }
             //Finally, verify that the number is 1-4 and return with status of 0, else return -1
             finally
@@ -63,10 +93,10 @@ namespace ATM
             else return -1;
         }
 
-        //Displays the balance and returns 0 for success, -1 for error
-        int ViewBalance()
+        //Displays the balance
+        public static void ViewBalance()
         {
-            return 0;
+            Console.WriteLine($"Current balance: ${balance}\n\n");
         }
 
         //Checks that withdrawal is possible, then withdraws amount chosen
