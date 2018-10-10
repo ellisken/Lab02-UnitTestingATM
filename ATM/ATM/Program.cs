@@ -14,11 +14,12 @@ namespace ATM
             double amount = 0; //captures user amount to withdraw or deposit
 
             //Welcome user
-            Console.WriteLine("Welcome to Online Banking. Please select from the following menu (1, 2, 3, 4):");
+            Console.WriteLine("Welcome to Online Banking.");
 
             while (true)
             {
                 //Show menu
+                Console.WriteLine("\nPlease select from the following menu(1, 2, 3, 4):");
                 Console.WriteLine(menu);
                 //Get user choice (try, catch error thrown from ValidateChoice and reprompt)
                 userSelection = Console.ReadLine();
@@ -57,6 +58,11 @@ namespace ATM
                         try
                         {
                             amount = ValidateChoice(Console.ReadLine(), false);
+                            if(amount == -1)
+                            {
+                                Console.WriteLine("\nAmount not valid.\n");
+                                continue;
+                            }
                             break;
                         }
                         catch
