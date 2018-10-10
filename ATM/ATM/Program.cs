@@ -53,15 +53,15 @@ namespace ATM
                     string action = menuController == 2 ? "withdraw" : "deposit";
                     while (true)
                     {
-                        Console.WriteLine($"\n\nPlease enter amount to {action}");
+                        Console.WriteLine($"\nPlease enter amount to {action}");
                         try
                         {
-                            amount = Convert.ToDouble(ValidateChoice(Console.ReadLine(), false));
+                            amount = ValidateChoice(Console.ReadLine(), false);
                             break;
                         }
                         catch
                         {
-                            Console.WriteLine("\n\nInvalid amount.");
+                            Console.WriteLine("\nInvalid amount.");
                             continue;
                         }
                     }
@@ -104,7 +104,7 @@ namespace ATM
             }
             finally
             {
-                convertedInput = Convert.ToInt32(input);
+                convertedInput = Convert.ToDouble(input);
             }
             //If the number is 1-4 and return with that number
             if (convertedInput > 0 && convertedInput < 5 && menu) return convertedInput;
@@ -115,7 +115,7 @@ namespace ATM
         //Displays the balance
         public static void ViewBalance()
         {
-            Console.WriteLine($"Current balance: ${balance}\n\n");
+            Console.WriteLine($"\nCurrent balance: ${balance}\n");
         }
 
         //Checks that withdrawal is possible, then withdraws amount chosen
@@ -139,6 +139,7 @@ namespace ATM
         public static void Deposit(double amount)
         {
             balance = balance + amount;
+            Console.WriteLine();
         }
     }
 }
