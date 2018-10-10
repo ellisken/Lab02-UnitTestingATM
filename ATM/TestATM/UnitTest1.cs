@@ -1,5 +1,6 @@
 using System;
 using Xunit;
+using ATM;
 
 namespace TestATM
 {
@@ -8,7 +9,7 @@ namespace TestATM
         [Fact]
         public void Test1()
         {
-
+            Assert.Equal(-1, Program.ValidateChoice("hello"));
         }
     }
 }
