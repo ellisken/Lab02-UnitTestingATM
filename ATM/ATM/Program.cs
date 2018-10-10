@@ -10,7 +10,7 @@ namespace ATM
         {
             string menu = "1 - View Balance\n2 - Withdraw\n3 - Deposit\n4 - Exit\n";
             string userSelection; //captures user menu choice
-            int menuController;
+            double menuController; //controls transactions
             double amount = 0; //captures user amount to withdraw or deposit
 
             //Welcome user
@@ -88,19 +88,19 @@ namespace ATM
         //else returns the amount entered if menu is set to false
         //If the input is invalid (i.e., not convertible to an int)
         //then the method throws an error
-        public static int ValidateChoice(string input, bool menu)
+        public static double ValidateChoice(string input, bool menu)
         {
             //Console.WriteLine("validateChoice called");
-            int convertedInput;
+            double convertedInput;
             //Try to convert input to int
             try
             {
-                convertedInput = Convert.ToInt32(input);
+                convertedInput = Convert.ToDouble(input);
             }
             //Catch error, throw to main, and return with status of -1
-            catch(Exception e)
+            catch
             {
-                throw e;
+                throw;
             }
             finally
             {

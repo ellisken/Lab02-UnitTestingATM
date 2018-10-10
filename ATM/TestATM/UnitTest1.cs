@@ -6,18 +6,33 @@ namespace TestATM
 {
     public class UnitTest1
     {
+        //Test ValidateCheck()
         [Fact]
-        public void ValidateCheckInvalidNum()
+        public void ValidateCheckInvalidMenu()
         {
             Assert.Equal(-1, Program.ValidateChoice("6", true));
         }
 
         [Fact]
-        public void ValidateCheckValid()
+        public void ValidateCheckValidMenu()
         {
             Assert.Equal(3, Program.ValidateChoice("3", true));
         }
 
+        [Fact]
+        public void ValidateCheckValidAmount()
+        {
+            Assert.Equal(5000, Program.ValidateChoice("5000", false));
+        }
+
+        [Fact]
+        public void ValidateCheckInvalidAmount()
+        {
+            Assert.Equal(-1, Program.ValidateChoice("-10", false));
+        }
+
+
+        //Test Withdraw()
         [Theory]
         [InlineData(99)]
         [InlineData(0)]
