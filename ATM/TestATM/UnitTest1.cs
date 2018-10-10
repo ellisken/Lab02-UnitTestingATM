@@ -9,7 +9,7 @@ namespace TestATM
         [Fact]
         public void Test1()
         {
-            Assert.Equal(-1, Program.ValidateChoice("hello"));
+            Assert.Equal(-1, Program.ValidateChoice("6"));
         }
     }
 }

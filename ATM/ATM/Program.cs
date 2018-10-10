@@ -29,7 +29,7 @@ namespace ATM
                 catch(Exception e)
                 {
                     Console.WriteLine($"{e.Message}");
-                    Console.WriteLine("Invalid selection. Please select from the following menu:");
+                    Console.WriteLine("Please select from the following menu:");
                     Console.WriteLine(menu);
                 }
                 //Validate user choice
@@ -43,10 +43,24 @@ namespace ATM
         public static int ValidateChoice(string input)
         {
             //Console.WriteLine("validateChoice called");
+            int convertedInput;
             //Try to convert input to int
+            try
+            {
+                convertedInput = Convert.ToInt32(input);
+            }
             //Catch error, throw to main, and return with status of -1
+            catch
+            {
+                throw new Exception("Menu selection invalid.");
+            }
             //Finally, verify that the number is 1-4 and return with status of 0, else return -1
-            return 0;
+            finally
+            {
+                convertedInput = Convert.ToInt32(input);
+            }
+            if (convertedInput > 0 && convertedInput < 5) return convertedInput;
+            else return -1;
         }
 
         //Displays the balance and returns 0 for success, -1 for error
