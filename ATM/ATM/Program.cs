@@ -4,7 +4,7 @@ namespace ATM
 {
     public class Program
     {
-        public static double balance = 0;//user balance
+        public static double balance = 100;//user balance
 
         static void Main()
         {
@@ -101,9 +101,19 @@ namespace ATM
 
         //Checks that withdrawal is possible, then withdraws amount chosen
         //returns 0 for success, -1 for error
-        int Withdrawn()
+        public static int Withdraw(double amount)
         {
-            return 0;
+            //Check that withdrawal is possible
+            if(balance - amount <= 0)
+            {
+                Console.WriteLine("\n\nInsufficient Funds. Cannot complete transaction.\n\n");
+                return -1;
+            }
+            else
+            {
+                balance = balance - amount;
+                return 0;
+            }
         }
 
         //Adds chosen amount to user balance. Returns 0 is successful, -1 if error

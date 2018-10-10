@@ -19,7 +19,21 @@ namespace TestATM
         }
 
         [Theory]
-        [InlineData()]
+        [InlineData(99)]
+        [InlineData(0)]
+        [InlineData(.50)]
+        public void TestWithdrawValid(double num)
+        {
+            Assert.Equal(0, Program.Withdraw(num));
+        }
+
+        [Theory]
+        [InlineData(100)]
+        [InlineData(1000)]
+        public void TestWithdrawInvalid(double num)
+        {
+            Assert.Equal(-1, Program.Withdraw(num));
+        }
     }
 
 }
