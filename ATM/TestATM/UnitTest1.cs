@@ -9,13 +9,13 @@ namespace TestATM
         [Fact]
         public void ValidateCheckInvalidNum()
         {
-            Assert.Equal(-1, Program.ValidateChoice("6"));
+            Assert.Equal(-1, Program.ValidateChoice("6", true));
         }
 
         [Fact]
         public void ValidateCheckValid()
         {
-            Assert.Equal(3, Program.ValidateChoice("3"));
+            Assert.Equal(3, Program.ValidateChoice("3", true));
         }
 
         [Theory]
