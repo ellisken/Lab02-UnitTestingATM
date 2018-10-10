@@ -8,7 +8,7 @@ namespace ATM
 
         static void Main()
         {
-            string menu = "1 - View Balance/n2 - Withdraw\n3 - Deposit\n4 - Exit";
+            string menu = "1 - View Balance\n2 - Withdraw\n3 - Deposit\n4 - Exit";
             string userSelection; //captures user menu choice
             int menuController;
             //double amount; //captures user amount to withdraw or deposit
@@ -30,7 +30,7 @@ namespace ATM
                 {
                     Console.WriteLine($"{e.Message}");
                     Console.WriteLine("Please select from the following menu:");
-                    Console.WriteLine(menu);
+                    continue;
                 }
                 //Validate user choice
                 //If choice is exit, exit

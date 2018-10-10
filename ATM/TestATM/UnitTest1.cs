@@ -7,9 +7,16 @@ namespace TestATM
     public class UnitTest1
     {
         [Fact]
-        public void Test1()
+        public void ValidateCheckInvalidNum()
         {
             Assert.Equal(-1, Program.ValidateChoice("6"));
         }
+
+        [Fact]
+        public void ValidateCheckValid()
+        {
+            Assert.Equal(3, Program.ValidateChoice("3"));
+        }
     }
+
 }
